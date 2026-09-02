@@ -3,6 +3,8 @@ from src.screen.components.header import header_home
 from src.screen.ui.base_layout import style_base_layout ,style_background_home
 from src.screen.components.footer import footer_home
 
+
+
 def home_screen():
 
     header_home()

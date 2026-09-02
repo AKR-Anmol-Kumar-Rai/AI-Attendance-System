@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 
 def style_base_layout():
     st.markdown("""
@@ -28,7 +29,7 @@ def style_base_layout():
 
                 h2 {
                     font-family: "Audiowide", sans-serif !important;
-                    font-size: 1.75rem !important;
+                    font-size: 1.5rem !important;
                     line-height: 0.9 !important;
                     margin-bottom:0rem !important;
                     color:  #28282B   !important;        
@@ -99,27 +100,31 @@ def style_base_layout():
 
 
 def style_background_home():
-    st.markdown("""
 
+    with open("chalkboard2.png", "rb") as f:
+        img = base64.b64encode(f.read()).decode()
+
+    st.markdown(f"""
     <style>
-            .stApp{
-                 background: #4052D6  !important
-            }
-                
-            .stApp div[data-testid="stColumn"] {
-                background-color: #E0E3FF !important;
-                padding: 2.5rem 1rem 2.5rem 4.5rem !important;
-                border-radius: 5rem !important;
-            }
+        .stApp {{
+             background-image: url("data:image/png;base64,{img}") !important;
+             background-size: cover !important;
+             background-position: center !important;
+             background-attachment: fixed !important;
+        }}
 
-
+        .stApp div[data-testid="stColumn"] {{
+             background-color: #E0E3FF !important;
+             padding: 2.5rem 1rem 2.5rem 4.5rem !important;
+             border-radius: 5rem !important;
+         }}
     </style>
 
-     """,unsafe_allow_html=True)    
+    """, unsafe_allow_html=True)  
     
 
 
-def style_background_dashboard():
+def style_background_dashboard():   #used for teacher_screen
 
     st.markdown("""
 

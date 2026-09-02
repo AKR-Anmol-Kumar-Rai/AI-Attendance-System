@@ -7,4 +7,6 @@ venv/
 
 .streamlit/
 
+.DS_Store
+
 dist/

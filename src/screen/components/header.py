@@ -16,11 +16,22 @@ def header_home():
 
 def header_dashboard():
 
-    logo_url= "https://i.pinimg.com/1200x/c8/46/ab/c846abb80b8c1d4459808c90af3a5c73.jpg"
+    logo_url="https://file.aiquickdraw.com/imgcompressed/img/compressed_a5696edabf377d67655b27a15eafa353.webp"
+
+    # Take this whole box and move it 30 pixels upward
+    st.markdown("""
+        <style>
+            div[data-testid="stMarkdown"] {
+            margin-top: -40px !important;
+            }
+        </style>
+        """, unsafe_allow_html=True)
+
+    # div makes the container/box
     st.markdown(f"""
-         <div style="display:flex; align-items:center; justify-content:center;gap:40px;"
+         <div style="display:flex; align-items:center; justify-content:center;gap:10px;">
             <img src='{logo_url}' style='height:85px;border-radius:10px;' />
-            <h2 style-'text-align:left; color:#5865F2'>SNAP<br/>CLASS</h2>
+            <h2 style='text-align:left; color:#5865F2'><span style="padding-left:90px;">AI</span> <br/> ATTENDANCE</h2>
 
          </div> 
 
