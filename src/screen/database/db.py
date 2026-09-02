@@ -193,16 +193,17 @@ def create_attendance(logs):
         response = (
             supabase
             .table("attendance_logs")
-            .insert(logs)
+            .upsert(
+                logs,
+                on_conflict="student_id,subject_id,attendance_date",
+                ignore_duplicates=True
+            )
             .execute()
         )
 
         return response.data
 
     except Exception as e:
-        if "23505" in str(e):
-            return []
-
         raise
 
 """
@@ -274,3 +275,34 @@ def get_attendance_for_teacher(teacher_id):
     total_classes = len(unique_dates)
 
     return data, total_classes
+
+
+
+
+# some additional changes in supabase
+
+""" changes in attendance logs table
+1. 
+->ALTER TABLE attendance_logs
+->ADD CONSTRAINT unique_student_subject_date
+->UNIQUE (student_id, subject_id, attendance_date);
+
+
+It tells Supabase: The same student cannot have two attendance records for the same subject on the same date.
+
+So this combination must be unique:
+    student_id + subject_id + attendance_date
+    
+
+
+2. chnges in create_attendance
+.table("attendance_logs")
+.upsert(
+    logs,
+    on_conflict="student_id,subject_id,attendance_date",
+    ignore_duplicates=True
+)
+
+It tells Supabase: When inserting these attendance records, use the database's unique constraint to detect duplicates and ignore them.
+    
+"""
