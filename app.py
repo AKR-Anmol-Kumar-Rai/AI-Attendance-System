@@ -7,7 +7,7 @@ from src.screen.components.dialog_auto_enroll import auto_enroll_dialog
 def main():
 
     st.set_page_config(
-        page_title='AI-Attendance : Mking Attendance fsater using AI',
+        page_title='AI-Attendance : Making Attendance fsater using AI',
         page_icon="https://file.aiquickdraw.com/imgcompressed/img/compressed_a5696edabf377d67655b27a15eafa353.webp"
     )
 
