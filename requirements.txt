@@ -8,7 +8,7 @@ dlib-bin  #detect faces(makes reactangle around faces but we need embeddings of 
 git+https://github.com/ageitgey/face_recognition_models
 setuptools
 
-face-recognition
+# face-recognition
 # face-recognition-models
 
 # DATABASE
