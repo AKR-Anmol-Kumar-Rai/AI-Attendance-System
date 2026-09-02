@@ -6,7 +6,7 @@ scikit-learn
 dlib-bin  #detect faces(makes reactangle around faces but we need embeddings of faces so we use ageitgey models with dlib-bin)
 
 git+https://github.com/ageitgey/face_recognition_models
-setuptools
+setuptools<82
 
 # face-recognition
 # face-recognition-models
